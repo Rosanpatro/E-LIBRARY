@@ -1,0 +1,8 @@
+Create table Users
+(
+	Username varchar(20),
+	Password varchar(20),
+	Email varchar(50),
+	Phone varchar(20),
+		
+);
