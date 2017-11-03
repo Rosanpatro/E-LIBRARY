@@ -1,6 +1,7 @@
-<%@page import="java.sql.SQLException"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.SQLException"%>
@@ -14,19 +15,16 @@
 </head>
 <body>
 	<%
-	try
-	{	
-		Connection con=Provider.getConnection();
-		Statement stmt=con.createStatement();
-		String name=request.getParameter("name");
-		System.out.println(name);
-		stmt.executeUpdate("DELETE FROM users WHERE Username='"+name+"'");
-		response.sendRedirect("viewLibrarian.jsp");
-	}
-	catch(SQLException e)
-	{
-		
-	}
+		try {
+			Connection con = Provider.getConnection();
+			Statement stmt = con.createStatement();
+			String name = request.getParameter("name");
+			System.out.println(name);
+			stmt.executeUpdate("DELETE FROM users WHERE Username='" + name + "'");
+			response.sendRedirect("viewLibrarian.jsp");
+		} catch (SQLException e) {
+
+		}
 	%>
 </body>
 </html>
