@@ -50,8 +50,8 @@
 	<h1>Librarian Login</h1>
 	<form action="com.controller.LibrarianLogin" method="post">
 		<pre>
-			Email 		:	<input type="text" name="email">	 <br>
-			Password 	:	<input type="password" name="password">	 <br>
+			Email 		:	<input type="text" name="email" required>	 <br>
+			Password 	:	<input type="password" name="password" required>	 <br>
 							<input type="submit" value="Login" 
 							class="btn btn-primary">
 		</pre>

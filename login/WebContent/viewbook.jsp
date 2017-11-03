@@ -36,28 +36,33 @@
 	background-color: aqua;
 }
 </style>
-<title>VIEW LIBRARIAN</title>
+<title>VIEW BOOK LIST</title>
 </head>
 
 <body>
 	<ul>
-		<li> <a href="welcome.jsp">HOME</a></li>
-		<li> <a href="register.jsp">ADD LIBRARIAN</a></li>
-		<li> <a href="viewLibrarian.jsp">VIEW LIBRARIAN</a></li>
-		<li> <a href="com.controller.addminlogout">LOGOUT</a></li>	
+		<li> <a href="Librarianwelcome.jsp">Home</a></li>
+		<li> <a href="addbook.jsp">Add Book</a></li>
+		<li> <a href="viewbook.jsp">View Book List</a></li>
+		<li> <a href="issuebook.jsp">Issue Book</a></li>
+		<li> <a href="issuebooklist.jsp">Issue Book List</a></li>
+		<li> <a href="returnbook.jsp">Return Book</a></li>
+		<li> <a href="com.controller.LibrarianLogout">Logout</a></li>	
 	</ul>
 	<%
 	try
 	{	
 		Connection con=Provider.getConnection();
 		Statement stmt=con.createStatement();
-		ResultSet rst=stmt.executeQuery("select * from users");
+		ResultSet rst=stmt.executeQuery("select * from books");
 		out.print("<table>");
 		out.print("<tr>");
-		out.print("<td style='width:150px'>Username</td>");
-		out.print("<td style='width:150px'>Password</td>");
-		out.print("<td style='width:150px'>Email</td>");
-		out.print("<td style='width:150px'>Phone Number</td>");
+		out.print("<td style='width:150px'>Callno</td>");
+		out.print("<td style='width:150px'>Bookname</td>");
+		out.print("<td style='width:150px'>Author</td>");
+		out.print("<td style='width:150px'>Publisher</td>");
+		out.print("<td style='width:150px'>Quantity</td>");
+		
 		out.print("</tr>");
 		
 		while(rst.next())
@@ -67,7 +72,9 @@
 			out.print("<td>"+rst.getString(2)+"</td>");
 			out.print("<td>"+rst.getString(3)+"</td>");
 			out.print("<td>"+rst.getString(4)+"</td>");
-			out.print("<td><a href=Delete.jsp?name="+rst.getString(1)+">DELETE</a></td>");
+			out.print("<td>"+rst.getString(5)+"</td>");
+			
+			out.print("<td><a href=Deletebook.jsp?name="+rst.getString(2)+">DELETE</a></td>");
 			out.print("</tr>");
 		}
 		

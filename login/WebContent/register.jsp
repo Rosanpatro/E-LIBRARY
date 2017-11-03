@@ -29,7 +29,7 @@
 	background-color: aqua;
 }
 </style>
-<title>HOME</title>
+<title>Add librarian</title>
 
 </head>
 <body>
@@ -49,10 +49,10 @@
 		</font>
 	<form action="com.controller.Register" method="post">
 		<pre>
-			Username 	:	<input type="text" name="username">	 <br>
-			Password 	:	<input type="password" name="password">	 <br>
-			Email 		:	<input type="email" name="email">	 <br>
-			Phone 		:	<input type="text" name="phone">	 <br>
+			Username 	:	<input type="text" name="username" required>	 <br>
+			Password 	:	<input type="password" name="password" required>	 <br>
+			Email 		:	<input type="email" name="email" required>	 <br>
+			Phone 		:	<input type="text" name="phone" required>	 <br>
 							<input type="submit" value="REGISTER" 
 							class="btn btn-primary">
 		</pre>

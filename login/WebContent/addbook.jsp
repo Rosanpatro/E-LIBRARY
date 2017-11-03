@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 <link href="bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -29,37 +29,35 @@
 	background-color: aqua;
 }
 </style>
-<title>HOME</title>
+<title>Add Book</title>
 
 </head>
 <body>
-	<%
-		if((session.getAttribute("email")) == null)
-			response.sendRedirect("librarianlogin.jsp");
-	%>
 	<ul>
-		 <li> <font color="white"><%=session.getAttribute("email") %></font></li> 
 		<li> <a href="Librarianwelcome.jsp">Home</a></li>
 		<li> <a href="addbook.jsp">Add Book</a></li>
 		<li> <a href="viewbook.jsp">View Book List</a></li>
 		<li> <a href="issuebook.jsp">Issue Book</a></li>
 		<li> <a href="issuebooklist.jsp">Issue Book List</a></li>
 		<li> <a href="returnbook.jsp">Return Book</a></li>
-		<li> <a href="com.controller.LibrarianLogout">Logout</a></li>
-		
-		
-	</ul>	
-	<center>
-		<img src="library1.jpg" />
-	</center>	
+		<li> <a href="com.controller.LibrarianLogout">Logout</a></li>	
+	</ul>
+	<font color="red" >
+		<%
+			if(request.getParameter("msg") != null)
+				out.print(request.getParameter("msg"));
+		%>
+		</font>
+	<form action="com.controller.Addbook" method="post">
+		<pre>
+			Call No	 	:	<input type="text" name="callno" required>	 <br>
+			Book Name 	:	<input type="text" name="bookname" required>	 <br>
+			Author 		:	<input type="text" name="author" required>	 <br>
+			Publisher 	:	<input type="text" name="publisher" required>	<br>
+			Quantity 	:	<input type="number" name="quantity" required>	<br>
+							<input type="submit" value="REGISTER" 
+							class="btn btn-primary">
+		</pre>
+	</form>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
